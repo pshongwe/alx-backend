@@ -21,7 +21,7 @@ class MRUCache(BaseCaching):
         """
         if key is not None and item is not None:
             if key in self.cache_data:
-                self.cache_data.move_to_end(key)
+                self.cache_data.move_to_end(key, last=False)
             self.cache_data[key] = item
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 discarded_key, _ = self.cache_data.popitem(last=False)
@@ -32,5 +32,5 @@ class MRUCache(BaseCaching):
         """
         if key is None or key not in self.cache_data:
             return None
-        self.cache_data.move_to_end(key)
+        self.cache_data.move_to_end(key, last=False)
         return self.cache_data[key]
