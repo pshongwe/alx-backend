@@ -26,6 +26,7 @@ class MRUCache(BaseCaching):
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 discarded_key, _ = self.cache_data.popitem(last=False)
                 print("DISCARD: {}".format(discarded_key))
+        return
 
     def get(self, key):
         """ Get an item by key
