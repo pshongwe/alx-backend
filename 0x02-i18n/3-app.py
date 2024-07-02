@@ -23,6 +23,7 @@ class Config:
 app.config.from_object(Config)
 babel = Babel(app)
 
+
 @babel.localeselector
 def get_locale():
     """
@@ -32,6 +33,7 @@ def get_locale():
     a = request.accept_languages
     return a.best_match(app.config['LANGUAGES'])
 
+
 @app.context_processor
 def inject_conf_var():
     """
@@ -39,6 +41,7 @@ def inject_conf_var():
     variables into the template context.
     """
     return dict(get_locale=get_locale)
+
 
 @app.route('/')
 def index():
@@ -49,8 +52,8 @@ def index():
     """
     app.logger.info('Index route was accessed')
     return render_template('3-index.html',
-            home_title=_("home_title"),
-            home_header=_("home_header"))
+                           home_title=_("home_title"),
+                           home_header=_("home_header"))
 
 
 if __name__ == '__main__':
