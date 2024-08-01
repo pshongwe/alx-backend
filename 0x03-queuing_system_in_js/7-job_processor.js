@@ -1,7 +1,7 @@
 #!/usr/bin/node
 import { createQueue, Job } from 'kue';
 
-const BLACKLISTED_NUMBERS = ['4153518780', '4153522781'];
+const BLACKLISTED_NUMBERS = ['4153518780', '4153518781'];
 const queue = createQueue();
 
 /**
